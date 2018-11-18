@@ -1,0 +1,46 @@
+<ion-content>
+  <h1>Tindogcat</h1>
+
+  <div class="imagem">
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/tindogcat-e7945.appspot.com/o/web_hi_res_512.png?alt=media&token=5440259d-907e-4630-97e7-bee657a87134"
+    />
+  </div>
+
+  <form #f="ngForm" (submit)="login(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" name="email" ngModel></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" name="senha" ngModel></ion-input>
+      </ion-item>
+      <br />
+      <button ion-button block color="dark" round>
+        <ion-icon ios="ios-contact" md="md-contact"> Entrar</ion-icon>
+      </button>
+    </ion-list>
+  </form>
+
+  <button ion-button block color="dark" round (click)="cadastrar()">
+    Cadastre-se
+  </button>
+
+  <br />
+
+  <ion-item>
+    <button
+      ion-button
+      block
+      clear
+      type="button"
+      color="primary"
+      (click)="recuperar()"
+    >
+      Recuperar Senha
+    </button>
+  </ion-item>
+</ion-content>

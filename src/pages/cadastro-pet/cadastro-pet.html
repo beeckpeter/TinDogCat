@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastrando Pet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="imagemfundo">
+  <ion-grid no-padding>
+    <ion-list no-lines>
+      <ion-item>
+        <ion-row>
+          <ion-col class="ajuste-image">
+            <div *ngIf="fotoPetNew == null; else: NovaFoto">
+              <img [src]="dadosPet.fotoPet" />
+              <ion-col col-1>
+                <button ion-button only-icon small (click)="abreCamera()">
+                  <ion-icon name="ios-camera"></ion-icon>
+                </button>
+              </ion-col>
+            </div>
+            <ng-template #NovaFoto>
+              <div>
+                <img [src]="fotoPetNew" />
+                <ion-col col-1 class="imagePerfil">
+                  <button ion-button only-icon small (click)="abreCamera()">
+                    <ion-icon name="ios-camera"></ion-icon>
+                  </button>
+                </ion-col>
+              </div>
+            </ng-template>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+  <form #p="ngForm" (submit)="cadastrarPet(p)">
+    <ion-list>
+      <ion-item hidden>
+        <ion-label stacked>id</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosPet.id" name="id" ngModel required></ion-input>
+        <p></p>
+      </ion-item>
+
+      <ion-item>
+        <h2>Foto</h2>
+        <ion-label stacked>Nome do Pet</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosPet.nomepet" name="nomepet" ngModel required></ion-input>
+        <p></p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Tipo Pet</ion-label>
+        <ion-select [(ngModel)]="dadosPet.tipopet" name="tipopet" ngModel required>
+          <ion-option value="Cão">Cão</ion-option>
+          <ion-option value="Gato">Gato</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Sexo Pet</ion-label>
+        <ion-select [(ngModel)]="dadosPet.sexo" name="sexo" ngModel required>
+          <ion-option value="Macho">Macho</ion-option>
+          <ion-option value="Fêmea">Fêmea</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="dadosPet.descricao" name="descricao" ngModel required></ion-input>
+      </ion-item>
+      <br /><br />
+
+      <button ion-button block color="dark" round>
+        <ion-icon ios="ios-contact" md="md-contact"> Salvar</ion-icon>
+      </button>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "73314532133",
+    "firebase_url": "https://tindogcat-e7945.firebaseio.com",
+    "project_id": "tindogcat-e7945",
+    "storage_bucket": "tindogcat-e7945.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73314532133:android:f57dd7ed03b012cc",
+        "android_client_info": {
+          "package_name": "br.edu.fatecriopreto.feiraaplicativomarketing.tindogcat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73314532133-d2pkkb3rp0igpl2kbafiteq2iqcqkbs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWnm-MVIEo0eBAn1PNbO_A-xdLNgInR3A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

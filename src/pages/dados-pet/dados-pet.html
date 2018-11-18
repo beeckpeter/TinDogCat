@@ -1,0 +1,30 @@
+<ion-header color="dark">
+  <ion-navbar>
+    <ion-title>Detalhes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <br />
+  <ion-list *ngFor="let u of (listagemUsuario | async)">
+    <div *ngIf="dados.idusuario == u.iduser">
+      <ion-grid>
+        <ion-row>
+          <ion-col> <img [src]="dados.fotoPet" /> </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col no-padding>
+            <h2 no-padding>{{ u.nome }}</h2>
+            <h4 no-padding>
+              Celular: {{ u.celular }}
+              <ion-icon name="logo-whatsapp" ion-start></ion-icon>
+            </h4>
+            <h4 no-padding>Nome do Pet: {{ dados.nomepet }}</h4>
+            <h4 no-padding>Sexo: {{ dados.sexo }}</h4>
+            <p no-padding>Detalhes: {{ dados.descricao }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-list>
+</ion-content>

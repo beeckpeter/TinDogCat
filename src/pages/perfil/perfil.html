@@ -1,0 +1,85 @@
+<ion-header color="dark" hideBackButton>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div *ngFor="let l of listagem | async">
+    <div *ngIf="l.iduser == uiduser">
+      <ion-grid>
+        <ion-list>
+          <ion-item-sliding>
+            <ion-item>
+              <ion-row padding-top>
+                <ion-col>
+                  <div *ngIf="fotoPerfilNew == null; else: NovaFoto">
+                    <img [src]="l.foto" />
+                    <ion-col col-1 class="imagePerfil">
+                      <button ion-button only-icon small (click)="abreCamera()">
+                        <ion-icon name="ios-camera"></ion-icon>
+                      </button>
+                    </ion-col>
+                  </div>
+                  <ng-template #NovaFoto>
+                    <div>
+                      <img [src]="fotoPerfilNew" />
+                      <ion-col col-1 class="imagePerfil">
+                        <button ion-button only-icon small (click)="abreCamera()">
+                          <ion-icon name="ios-camera"></ion-icon>
+                        </button>
+                      </ion-col>
+                    </div>
+                  </ng-template>
+                </ion-col>
+              </ion-row>
+              <ion-row no-padding class="buttons-profile">
+                <!-- <ion-col no-padding>
+              <button ion-button icon-left small full (click)="editUsuario(u)">
+                <ion-icon name="contact"></ion-icon>
+                Editar Usuario
+              </button>
+            </ion-col> -->
+                <ion-col no-padding class="column">
+                  <button ion-button icon-left small full color="dark" (click)="logout()">
+                    <ion-icon name="log-out"></ion-icon>
+                    Sair
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-grid>
+    </div>
+  </div>
+
+  <form #form="ngForm" (submit)="editar(form)">
+    <div *ngFor="let l of listagem | async">
+      <div *ngIf="l.iduser == uiduser">
+        <ion-item hidden>
+          <ion-label>ID: </ion-label>
+          <ion-input type="text" [(ngModel)]="l.id" name="id"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="Label">Nome</ion-label>
+          <ion-input type="text" [(ngModel)]="l.nome" name="nome" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="Label">Celular</ion-label>
+          <ion-input type="text" [(ngModel)]="l.celular" name="celular" required></ion-input>
+        </ion-item>
+
+        <br /><br />
+
+        <button ion-button round outline color="dark">
+          Atualizar
+        </button>
+      </div>
+    </div>
+  </form>
+</ion-content>

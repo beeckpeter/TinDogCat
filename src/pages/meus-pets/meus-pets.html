@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meus Pets</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="imagemfundo">
+  <ion-list *ngFor="let p of (listagem | async)">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-thumbnail item-start> <img [src]="p.fotoPet" /> </ion-thumbnail>
+        <h2>Nome Pet: {{ p.nomepet }}</h2>
+        <p>Sexo: {{ p.sexo }}</p>
+        <button ion-button clear item-end (click)="editar(p)">Editar</button>
+        <button ion-button clear item-end (click)="excluir(p.id)">
+          Excluir
+        </button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

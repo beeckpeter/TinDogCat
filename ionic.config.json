@@ -1,0 +1,7 @@
+{
+  "name": "Tindogcat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

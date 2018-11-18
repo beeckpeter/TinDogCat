@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle hidden>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastro de Usuário</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="imagemfundo">
+
+  <ion-grid no-padding>
+    <ion-list no-lines>
+      <ion-item>
+        <ion-row>
+          <ion-col class="ajuste-image"> <img [src]="fotoPerfil" /> </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="botao-foto" col-4>
+            <button ion-button icon-end round outline (click)="abreCamera()">
+              Tirar Foto <ion-icon name="ios-camera"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+  <form #f="ngForm" (submit)="cadastrar(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" name="nome" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" name="email" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="senha" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Celular</ion-label>
+        <ion-input type="text" name="celular" ngModel required></ion-input>
+      </ion-item>
+      <br /><br />
+
+      <button ion-button block color="dark" round>
+        <ion-icon ios="ios-contact" md="md-contact">Salvar</ion-icon>
+      </button>
+    </ion-list>
+  </form>
+</ion-content>

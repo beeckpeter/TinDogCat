@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Inicial</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="imagemfundo">
+  <div padding>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="Gatos"> Gatos </ion-segment-button>
+      <ion-segment-button value="Caes"> Cães </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Caes'">
+      <ion-item-sliding *ngFor="let p of (listagem | async)">
+        <ion-item *ngIf="p.tipopet == 'Cão'">
+          <ion-thumbnail item-start> <img [src]="p.fotoPet" /> </ion-thumbnail>
+          <h2>Nome Pet: {{ p.nomepet }}</h2>
+          <p>
+            Sexo: {{ p.sexo }}
+            <button ion-button clear item-end (click)="detalhes(p)">Ver</button>
+          </p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Gatos'">
+      <ion-item-sliding *ngFor="let p of (listagem | async)">
+        <ion-item *ngIf="p.tipopet == 'Gato'">
+          <ion-thumbnail item-start> <img [src]="p.fotoPet" /> </ion-thumbnail>
+          <h2>Nome Pet: {{ p.nomepet }}</h2>
+          <p>
+            Sexo: {{ p.sexo }}
+            <button ion-button clear item-end (click)="detalhes(p)">Ver</button>
+          </p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>

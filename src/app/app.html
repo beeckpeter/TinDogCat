@@ -1,0 +1,24 @@
+<ion-menu [content]="content" menuClose persistent="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item-sliding *ngFor="let u of (lista | async)">
+        <ion-item *ngIf="uiduser == u.iduser">
+          <button ion-item (click)="inicial()">Inicial</button>
+
+          <button ion-item (click)="editar()">Perfil</button>
+          <button ion-item (click)="pets()">Meus Pets</button>
+          <button ion-item (click)="cadastrarPets()">Cadastro Pets</button>
+
+          <button ion-item (click)="logout()">Log Out</button>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
